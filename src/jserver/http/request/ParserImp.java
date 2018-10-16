@@ -46,7 +46,7 @@ public class ParserImp implements Parser {
     ret.setProtocolVersion(this.getProtocolVersion());
     
     for (int i = 1; i < data.length; i++) {
-      if (data[i].length != 2) // if does not looks like "key: value" shema.
+      if (data[i].length != 2) // if does not look like "key: value" shema.
         continue;
       int keyLength = data[i][0].length();
       ret.addField(data[i][0].substring(0, keyLength - 1), data[i][1]);
