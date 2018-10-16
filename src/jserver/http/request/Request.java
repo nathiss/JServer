@@ -46,7 +46,7 @@ public interface Request {
    * Returns a URI or null if the request is invalid.
    * @return a URI or null if the request is invalid
    */
-  public String getURI();
+  public String getUri();
   
   /**
    * Returns a HTTP protocol version or null if the request is invalid.
