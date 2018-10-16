@@ -21,41 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package jserver.request;
+package jserver.http;
 
 /**
- * Object representation of HTTP request.
+ * A set of valid HTTP protocol versions.
  * @author nathiss
  */
-public interface Request {
-  /**
-   * Returns true if the request has been parsed properly, false otherwise.
-   * @return true if the request has been parsed properly, false otherwise
-   */
-  public boolean isValid();
-  
-  /**
-   * Returns a HTTP request method or null if the request is invalid.
-   * @return a HTTP request method or null if the request is invalid
-   */
-  public Method getMethod();
-  
-  /**
-   * Returns a URI or null if the request is invalid.
-   * @return a URI or null if the request is invalid
-   */
-  public String getURI();
-  
-  /**
-   * Returns a HTTP protocol version or null if the request is invalid.
-   * @return a HTTP protocol version or null if the request is invalid
-   */
-  public ProtocolVersion getProtocolVersion();
-  
-  /**
-   * Returns an associated value for a given key or null if key does not exist.
-   * @param key an index in the associative array
-   * @return a value associated with a given key or null if key does not exist
-   */
-  public String get(String key);
+public enum ProtocolVersion {
+  HTTP_1_0,
+  HTTP_1_1
 }

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package jserver.request;
+package jserver.http.request;
 
 /**
  * A set of all valid HTTP request methods.
