@@ -38,6 +38,7 @@ public class ParserImp implements Parser {
     this.data = data;
      RequestImp ret = new RequestImp();
     
+     // "METHOD URI PROTOCOL_VERSION"
     if (data.length < 1 || data[0].length != 3)
       return ret;
     ret.setMethod(this.getMethod());
