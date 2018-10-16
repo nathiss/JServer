@@ -23,6 +23,10 @@
  */
 package jserver.http.response;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+import java.util.TimeZone;
 import jserver.http.ProtocolVersion;
 
 /**
@@ -85,8 +89,30 @@ public class ResponseImp implements Response {
    */
   @Override
   public String toString() {
-    // TODO(nathiss): implement
-    return "";
+    String ret = ProtocolVersion.getProtocolVersionText(this.version) + " ";
+    ret += 
+      this.code.getValue() + " " + Code.getReasonPhrase(this.code) + "\r\n";
+    
+    ret += "Date: " + this.getServerTime() + "\r\n";
+    ret += "Server: JServer\r\n";
+    ret += "Content-Length: " + this.data.length() + "\r\n";
+    ret += "Content-Type: " + MimeType.getMimeTypeText(this.mimeType) + "\r\n";
+    ret += "\r\n";
+    ret += this.data + "\r\n";
+    return ret;
+  }
+  
+  /**
+   * Returns a string representation of a current time. 
+   * @return a string representation of a current time
+   */
+  private String getServerTime() {
+    Calendar calendar = Calendar.getInstance();
+    SimpleDateFormat dateFormat = new SimpleDateFormat(
+      "EEE, dd MMM yyyy HH:mm:ss z", Locale.US
+    );
+    dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+    return dateFormat.format(calendar.getTime());
   }
   
   /**
