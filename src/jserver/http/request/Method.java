@@ -41,7 +41,8 @@ public enum Method {
    */
   POST,
   /**
-   * Replace all current representations of the target resource with the request payload.
+   * Replace all current representations of the target resource with
+   * the request payload.
    */
   PUT,
   /**
