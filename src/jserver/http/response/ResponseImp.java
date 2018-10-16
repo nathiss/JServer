@@ -89,6 +89,9 @@ public class ResponseImp implements Response {
    */
   @Override
   public String toString() {
+    if (!this.isValid())
+      return null;
+    
     String ret = ProtocolVersion.getProtocolVersionText(this.version) + " ";
     ret += 
       this.code.getValue() + " " + Code.getReasonPhrase(this.code) + "\r\n";
