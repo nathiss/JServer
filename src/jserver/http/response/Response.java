@@ -31,6 +31,12 @@ import jserver.http.ProtocolVersion;
  */
 public interface Response {
   /**
+   * Returns true if the response is valid, false otherwise.
+   * @return true if the response is valid, false otherwise
+   */
+  public boolean isValid();  
+
+  /**
    * Sets a HTTP protocol version for server response. 
    * @param version HTTP protocol version
    */
@@ -53,4 +59,11 @@ public interface Response {
    * @param data response content
    */
   public void setContent(String data);
+  
+  /**
+   * Serializes the object to HTTP server response.
+   * @return serialized object
+   */
+  @Override
+  public String toString();
 }
