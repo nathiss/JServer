@@ -28,6 +28,29 @@ package jserver.http;
  * @author nathiss
  */
 public enum ProtocolVersion {
+  /**
+   * HTTP/1.0
+   */
   HTTP_1_0,
-  HTTP_1_1
+  
+  /**
+   * HTTP/1.1
+   */
+  HTTP_1_1;
+  
+  /**
+   * Return textual phrase for all the versions above or null if not supported.
+   * @param version HTTP protocol version
+   * @return textual phrase or null if not implemented
+   */
+  public static String getProtocolVersionText(ProtocolVersion version) {
+    switch(version) {
+      case HTTP_1_0:
+        return "HTcTP/1.0";
+      case HTTP_1_1:
+        return "HTTP/1.1";
+      default:
+        return null;
+    }
+  }
 }
