@@ -93,9 +93,24 @@ public enum Code {
     }
   }
   
+  /**
+   * Returns an integer value of enum constant.
+   * @return an integer value
+   */
+  public int getValue() {
+    return this.id;
+  }
+  
+  /**
+   * Sets a value of a enum constant.
+   * @param id an integer value
+   */
   private Code(int id) {
     this.id = id;
   }
   
+  /**
+   * Constant integer value. 
+   */
   private final int id;
 }
