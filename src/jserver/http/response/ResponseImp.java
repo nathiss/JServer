@@ -99,7 +99,9 @@ public class ResponseImp implements Response {
     ret += "Date: " + this.getServerTime() + "\r\n";
     ret += "Server: JServer\r\n";
     ret += "Content-Length: " + this.data.length() + "\r\n";
-    ret += "Content-Type: " + MimeType.getMimeTypeText(this.mimeType) + "\r\n";
+    // TODO(nathiss): charset hard coded...
+    ret += "Content-Type: " + MimeType.getMimeTypeText(this.mimeType) + "; ";
+    ret += "charset=UTF-8\r\n";
     ret += "\r\n";
     ret += this.data + "\r\n";
     return ret;
