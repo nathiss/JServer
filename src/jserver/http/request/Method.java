@@ -60,5 +60,33 @@ public enum Method {
   /**
    * Perform a message loop-back test along the path to the target resource.
    */
-  TRACE
+  TRACE;
+  
+  /**
+   * Converts a string to Method.
+   * @param method a textual HTTP method
+   * @return converted HTTP request method
+   */
+  public static Method toMethod(String method) {
+    switch(method) {
+      case "GET":
+        return GET;
+      case "HEAD":
+        return HEAD;
+      case "POST":
+        return POST;
+      case "PUT":
+        return PUT;
+      case "DELETE":
+        return DELETE;
+      case "CONNECT":
+        return CONNECT;
+      case "OPTIONS":
+        return OPTIONS;
+      case "TRACE":
+        return TRACE;
+      default:
+        return null;
+    }
+  }
 }

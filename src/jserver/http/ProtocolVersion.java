@@ -46,9 +46,25 @@ public enum ProtocolVersion {
   public static String getProtocolVersionText(ProtocolVersion version) {
     switch(version) {
       case HTTP_1_0:
-        return "HTcTP/1.0";
+        return "HTTP/1.0";
       case HTTP_1_1:
         return "HTTP/1.1";
+      default:
+        return null;
+    }
+  }
+  
+  /**
+   * Converts a string to HTTP protocol version.
+   * @param version a textual HTTP protocol version
+   * @return converted HTTP protocol version
+   */
+  public static ProtocolVersion toProtocolVersion(String version) {
+    switch(version) {
+      case "HTTP/1.0":
+        return HTTP_1_0;
+      case "HTTP/1.1":
+        return HTTP_1_1;
       default:
         return null;
     }
