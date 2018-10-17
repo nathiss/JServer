@@ -33,6 +33,7 @@ public class FilesystemImp implements Filesystem {
   }
   
   public FilesystemImp(String rootDir) {
+    this.rootDir = new Path();
     this.setRootDir(rootDir);
   }
   
@@ -49,7 +50,10 @@ public class FilesystemImp implements Filesystem {
    */
   @Override
   public final File getFile(String filePath) {
-    Path absolutePath = this.rootDir.join(new Path(filePath));
+    Path uri = new Path(filePath);
+    if (uri.equals("/"))
+      uri = new Path("index.html");
+    Path absolutePath = this.rootDir.join(uri);
     FileImp file = new FileImp(absolutePath);
     if (file.getAbsolutePath().toString().startsWith(this.rootDir.toString()) &&
         file.isRegularFile())
