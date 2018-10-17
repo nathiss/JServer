@@ -64,7 +64,7 @@ public class ResponseFactoryImp implements ResponseFactory {
   private Response makeOk() {
     Response ret = new ResponseImp();
     ret.setCode(Code.OK);
-    ret.setMIME(MimeType.text_plain);
+    ret.setMimeType(MimeType.text_plain);
     ret.setProtocolVersion(ProtocolVersion.HTTP_1_1);
     ret.setContent("200 OK");
     
@@ -78,7 +78,7 @@ public class ResponseFactoryImp implements ResponseFactory {
   private Response makeBadRequest() {
     Response ret = new ResponseImp();
     ret.setCode(Code.BAD_REQUEST);
-    ret.setMIME(MimeType.text_html);
+    ret.setMimeType(MimeType.text_html);
     ret.setProtocolVersion(ProtocolVersion.HTTP_1_1);
     ret.setContent("<h1>400 Bad Request</h1>");
     
@@ -92,7 +92,7 @@ public class ResponseFactoryImp implements ResponseFactory {
   private Response makeForbidden() {
     Response ret = new ResponseImp();
     ret.setCode(Code.FORBIDDEN);
-    ret.setMIME(MimeType.text_html);
+    ret.setMimeType(MimeType.text_html);
     ret.setProtocolVersion(ProtocolVersion.HTTP_1_1);
     ret.setContent("<h1>403 FORBIDDEN</h1>");
     
@@ -106,7 +106,7 @@ public class ResponseFactoryImp implements ResponseFactory {
   private Response makeNotFound() {
     Response ret = new ResponseImp();
     ret.setCode(Code.NOT_FOUND);
-    ret.setMIME(MimeType.text_html);
+    ret.setMimeType(MimeType.text_html);
     ret.setProtocolVersion(ProtocolVersion.HTTP_1_1);
     ret.setContent("<h1>404 Not Found</h1>");
     
@@ -120,7 +120,7 @@ public class ResponseFactoryImp implements ResponseFactory {
   private Response makeMethodNotAllowed() {
     Response ret = new ResponseImp();
     ret.setCode(Code.METHOD_NOT_ALLOWED);
-    ret.setMIME(MimeType.text_html);
+    ret.setMimeType(MimeType.text_html);
     ret.setProtocolVersion(ProtocolVersion.HTTP_1_1);
     ret.setContent("<h1>405 Method Not Allowed</h1>");
     
@@ -134,7 +134,7 @@ public class ResponseFactoryImp implements ResponseFactory {
   private Response makeInternalServerError() {
     Response ret = new ResponseImp();
     ret.setCode(Code.INTERNAL_SERVER_ERROR);
-    ret.setMIME(MimeType.text_html);
+    ret.setMimeType(MimeType.text_html);
     ret.setProtocolVersion(ProtocolVersion.HTTP_1_1);
     ret.setContent("<h1>500 Internal Server Error</h1>");
     
@@ -148,7 +148,7 @@ public class ResponseFactoryImp implements ResponseFactory {
   private Response makeNotImplemented() {
     Response ret = new ResponseImp();
     ret.setCode(Code.NOT_IMPLEMENTED);
-    ret.setMIME(MimeType.text_html);
+    ret.setMimeType(MimeType.text_html);
     ret.setProtocolVersion(ProtocolVersion.HTTP_1_1);
     ret.setContent("<h1>501 Not Implemented</h1>");
     
@@ -162,7 +162,7 @@ public class ResponseFactoryImp implements ResponseFactory {
   private Response makeHttpVersionNotSupported() {
     Response ret = new ResponseImp();
     ret.setCode(Code.HTTP_VERSION_NOT_SUPPORTED);
-    ret.setMIME(MimeType.text_html);
+    ret.setMimeType(MimeType.text_html);
     ret.setProtocolVersion(ProtocolVersion.HTTP_1_1);
     ret.setContent("<h1>505 HTTP Version Not Supported</h1>");
     

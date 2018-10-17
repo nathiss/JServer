@@ -37,6 +37,7 @@ public class ResponseImp implements Response {
     this.mimeType = null;
     this.data = null;
     this.keepAlive = false;
+    this.lastModified = null;
   }
   
   /**
@@ -70,8 +71,16 @@ public class ResponseImp implements Response {
    * {@inheritDoc}
    */
   @Override
-  public void setMIME(MimeType type) {
+  public void setMimeType(MimeType type) {
     this.mimeType = type;
+  }
+  
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void setLastModified(HttpDate date) {
+    this.lastModified = date;
   }
 
   /**
@@ -104,6 +113,9 @@ public class ResponseImp implements Response {
     
     if (this.keepAlive)
       ret += "Connection: keep-alive\r\n";
+    
+    if (this.lastModified != null)
+      ret += "last-modified: " + this.lastModified.toString() + "\r\n";
     
     ret += "Date: " + this.getServerTime() + "\r\n";
     ret += "Server: JServer\r\n";
@@ -148,4 +160,9 @@ public class ResponseImp implements Response {
    * If it's true, keep-alive clausure will be added to a response. 
    */
   private boolean keepAlive;
+  
+  /**
+   * A date of a file last modification.
+   */
+  private HttpDate lastModified;
 }

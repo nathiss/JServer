@@ -64,6 +64,11 @@ public enum MimeType {
   image_x_icon,
   
   /**
+   * application/javascript
+   */
+  application_javascript,
+  
+  /**
    * application/json
    */
   application_json,
@@ -94,6 +99,8 @@ public enum MimeType {
         return "image/png";
       case image_x_icon:
         return "image/x-icon";
+      case application_javascript:
+        return "application/javascript";
       case application_json:
         return "application/json";
       case application_binary:
@@ -101,5 +108,32 @@ public enum MimeType {
       default:
         return null;
     }
-  };
+  }
+  
+  public static MimeType extensionToType(String extension) {
+    switch(extension) {
+      case "txt":
+        return text_plain;
+      case "html":
+      case "htm":
+        return text_html;
+      case "css":
+        return text_css;
+      case "gif":
+        return image_gif;
+      case "jpeg":
+      case "jpg":
+        return image_jpeg;
+      case "png":
+        return image_png;
+      case "ico":
+        return image_x_icon;
+      case "js":
+        return application_javascript;
+      case "json":
+        return application_json;
+      default:
+        return application_binary;
+    }
+  }
 }

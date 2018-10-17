@@ -23,6 +23,7 @@
  */
 package jserver.http.response;
 
+import jserver.http.HttpDate;
 import jserver.http.ProtocolVersion;
 
 /**
@@ -52,7 +53,13 @@ public interface Response {
    * Sets a HTTP response MIME type.
    * @param type HTTP response MIME type
    */
-  public void setMIME(MimeType type);
+  public void setMimeType(MimeType type);
+  
+  /**
+   * Sets a last modification date of a file.
+   * @param date a last modification date
+   */
+  public void setLastModified(HttpDate date);
   
   /**
    * Sets a payload for a HTTP response.
