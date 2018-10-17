@@ -49,8 +49,8 @@ public class ParserImp implements Parser {
       if (data[i].length != 2) // if does not look like "key: value" shema.
         continue;
       int keyLength = data[i][0].length();
-      // if colon isn't present then don't parse this line.
-      if (data[i][0][keyLength - 1] != ":")
+      // if colon isn't present don't parse this line.
+      if (data[i][0].charAt(keyLength - 1) != ':')
         continue;
       ret.addField(data[i][0].substring(0, keyLength - 1), data[i][1]);
     }
