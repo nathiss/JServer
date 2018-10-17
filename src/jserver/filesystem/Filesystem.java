@@ -64,8 +64,8 @@ public class Filesystem {
   
   /**
    * Returns true if a file under a given path exists, false otherwise.
-   * @param path
-   * @return 
+   * @param path a path to a file
+   * @return true if a file under a given path exists, false otherwise
    */
   public boolean exists(String path) {
     return new File(this.join(path)).exists();
