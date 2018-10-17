@@ -35,8 +35,8 @@ public class LexerImp implements Lexer {
   public String [][] lex(String data) {
     if (data == null)
       return null;
-    String [][] ret = null;
     String [] lines = data.split("[\\r\\n]+");
+    String [][] ret = new String[lines.length][0];
     for (int i = 0; i < lines.length; i++) {
       ret[i] = lines[i].split(" ");
     }
