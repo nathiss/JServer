@@ -81,6 +81,14 @@ public class RequestImp implements Request {
   }
   
   /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean hasKey(String key) {
+    return this.fields.containsKey(key);
+  }
+  
+  /**
    * Sets a HTTP request method
    * @param method HTTP request method
    */

@@ -60,4 +60,13 @@ public interface Request {
    * @return a value associated with a given key or null if key does not exist
    */
   public String get(String key);
+  
+  /**
+   * Returns true if a given key exists in the associative array,
+   * false otherwise.
+   * @param key a given key
+   * @return true if a given key exists in the associative array,
+   * false otherwise
+   */
+  public boolean hasKey(String key);
 }
