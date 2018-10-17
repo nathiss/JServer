@@ -59,6 +59,11 @@ public enum MimeType {
   image_png,
   
   /**
+   * image/x-icon
+   */
+  image_x_icon,
+  
+  /**
    * application/json
    */
   application_json,
@@ -87,6 +92,8 @@ public enum MimeType {
         return "image/jpeg";
       case image_png:
         return "image/png";
+      case image_x_icon:
+        return "image/x-icon";
       case application_json:
         return "application/json";
       case application_binary:
