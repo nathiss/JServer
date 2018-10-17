@@ -24,17 +24,13 @@
 package jserver.filesystem;
 
 /**
- * An interface representing a filesystem.
+ * An abstract factory for a filesystem object.
  * @author nathiss
  */
-public interface Filesystem {
+public interface FilesystemFactory {
   /**
-   * Returns an {@link File} object representing a file on a filesystem or null
-   * if file is not a regular file or can not be read.
-   * @param filePath a file name. If null is given sets the name to
-   * "index.html".
-   * @return an {@link File} object representing a file on a filesystem or null
-   * if file is not a regular file or can not be read
+   * Creates a {@link Filesystem} object.
+   * @return a created {@link Filesystem} object.
    */
-  public File getFile(String filePath);
+  public Filesystem makeFilesystem();
 }

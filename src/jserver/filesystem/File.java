@@ -23,18 +23,46 @@
  */
 package jserver.filesystem;
 
+import jserver.http.HttpDate;
+
 /**
- * An interface representing a filesystem.
+ * The File Interface representing a file on a filesystem.
  * @author nathiss
  */
-public interface Filesystem {
+public interface File {
   /**
-   * Returns an {@link File} object representing a file on a filesystem or null
-   * if file is not a regular file or can not be read.
-   * @param filePath a file name. If null is given sets the name to
-   * "index.html".
-   * @return an {@link File} object representing a file on a filesystem or null
-   * if file is not a regular file or can not be read
+   * Reads a whole file and returns its content.
+   * @return a file content
    */
-  public File getFile(String filePath);
+  public String read();
+  
+  /**
+   * Returns a file modification date.
+   * @return a file modification date
+   */
+  public HttpDate getModificationDate();
+  
+  /**
+   * Returns an absolute path of this file.
+   * @return an absolute path represented as {@link Path}
+   */
+  public Path getAbsolutePath();
+  
+  /**
+   * Returns a file name (with an extension)
+   * @return a file name
+   */
+  public String getName();
+  
+  /**
+   * Returns a file extension if any or null otherwise.
+   * @return a file extension if any or null otherwise
+   */
+  public String getExtension();
+  
+  /**
+   * Returns true if this file is a readable, false otherwise.
+   * @return true if this file is a readable, false otherwise
+   */
+  public boolean isReadable();
 }

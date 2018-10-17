@@ -24,17 +24,41 @@
 package jserver.filesystem;
 
 /**
- * An interface representing a filesystem.
+ * An class representing a filesystem.
  * @author nathiss
  */
-public interface Filesystem {
+public class FilesystemImp implements Filesystem {
+  public FilesystemImp() {
+    this(null);
+  }
+  
+  public FilesystemImp(String rootDir) {
+    this.setRootDir(rootDir);
+  }
+  
   /**
-   * Returns an {@link File} object representing a file on a filesystem or null
-   * if file is not a regular file or can not be read.
-   * @param filePath a file name. If null is given sets the name to
-   * "index.html".
-   * @return an {@link File} object representing a file on a filesystem or null
-   * if file is not a regular file or can not be read
+   * Sets a root directory path.
+   * @param path a root directory path
    */
-  public File getFile(String filePath);
+  public final void setRootDir(String path) {
+    this.rootDir.set(path);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public final File getFile(String filePath) {
+    Path absolutePath = this.rootDir.join(new Path(filePath));
+    FileImp file = new FileImp(absolutePath);
+    if (file.getAbsolutePath().toString().startsWith(this.rootDir.toString()) &&
+        file.isRegularFile())
+      return file;
+    return null;
+  }
+  
+  /**
+   * A filesystem root dir.
+   */
+  private Path rootDir;
 }
