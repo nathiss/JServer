@@ -21,55 +21,49 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package jserver.http.response;
+package jserver.http;
 
-import jserver.http.ProtocolVersion;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
- * Object representation of HTTP response.
+ * Converts a {@link Date} to a {@link String} representation of the date.
  * @author nathiss
  */
-public interface Response {
+public class HttpDate {
   /**
-   * Returns true if the response is valid, false otherwise.
-   * @return true if the response is valid, false otherwise
+   * Converts current time to a {@link String}.
    */
-  public boolean isValid();  
-
-  /**
-   * Sets a HTTP protocol version for server response. 
-   * @param version HTTP protocol version
-   */
-  public void setProtocolVersion(ProtocolVersion version);
+  public HttpDate() {
+    this(Calendar.getInstance().getTime());
+  }
   
   /**
-   * Sets a HTTP response code.
-   * @param code HTTP response code.
+   * Converts a {@link Date} to a {@link String}.
+   * @param date 
    */
-  public void setCode(Code code);
+  public HttpDate(Date date) {
+    SimpleDateFormat dateFormat = new SimpleDateFormat(
+      "EEE, dd MMM yyyy HH:mm:ss z", Locale.US
+    );
+    dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+    this.date = dateFormat.format(date);
+  }
   
   /**
-   * Sets a HTTP response MIME type.
-   * @param type HTTP response MIME type
-   */
-  public void setMIME(MimeType type);
-  
-  /**
-   * Sets a payload for a HTTP response.
-   * @param data response content
-   */
-  public void setContent(String data);
-  
-  /**
-   * Sets a keep-alive flag
-   * @param flag a keep-alive flag
-   */
-  public void setKeepAlive(boolean flag);
-  
-  /**
-   * Serializes the object to HTTP server response.
-   * @return serialized object
+   * Returns converted {@link Date}.
+   * @return string representation of this object
    */
   @Override
-  public String toString();
+  public String toString() {
+    return this.date;
+  }
+  
+  /**
+   * Converted date.
+   */
+  private String date;
 }

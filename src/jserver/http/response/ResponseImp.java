@@ -23,10 +23,7 @@
  */
 package jserver.http.response;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
-import java.util.TimeZone;
+import jserver.http.HttpDate;
 import jserver.http.ProtocolVersion;
 
 /**
@@ -124,12 +121,7 @@ public class ResponseImp implements Response {
    * @return a string representation of a current time
    */
   private String getServerTime() {
-    Calendar calendar = Calendar.getInstance();
-    SimpleDateFormat dateFormat = new SimpleDateFormat(
-      "EEE, dd MMM yyyy HH:mm:ss z", Locale.US
-    );
-    dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-    return dateFormat.format(calendar.getTime());
+    return new HttpDate().toString();
   }
   
   /**
