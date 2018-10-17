@@ -39,6 +39,7 @@ public class ResponseImp implements Response {
     this.code = null;
     this.mimeType = null;
     this.data = null;
+    this.keepAlive = false;
   }
   
   /**
@@ -88,6 +89,14 @@ public class ResponseImp implements Response {
    * {@inheritDoc}
    */
   @Override
+  public void setKeepAlive(boolean flag) {
+    this.keepAlive = flag;
+  }
+  
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public String toString() {
     if (!this.isValid())
       return null;
@@ -95,6 +104,9 @@ public class ResponseImp implements Response {
     String ret = ProtocolVersion.getProtocolVersionText(this.version) + " ";
     ret += 
       this.code.getValue() + " " + Code.getReasonPhrase(this.code) + "\r\n";
+    
+    if (this.keepAlive)
+      ret += "Connection: keep-alive\r\n";
     
     ret += "Date: " + this.getServerTime() + "\r\n";
     ret += "Server: JServer\r\n";
@@ -139,4 +151,9 @@ public class ResponseImp implements Response {
    * HTTP payload.
    */
   private String data;
+  
+  /**
+   * If it's true, keep-alive clausure will be added to a response. 
+   */
+  private boolean keepAlive;
 }
