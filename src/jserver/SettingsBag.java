@@ -21,23 +21,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package jserver.filesystem;
+package jserver;
 
-import jserver.SettingsBag;
+import java.util.HashMap;
 
 /**
- * An abstract factory for a filesystem object.
+ *
  * @author nathiss
  */
-public class FilesystemFactoryImp implements FilesystemFactory {
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public Filesystem makeFilesystem() {
-    // TODO(nathiss): hard coded path
-    return new FilesystemImp(SettingsBag.getInstance().get("root"));
+public class SettingsBag {
+  private SettingsBag() {
+    this.map = new HashMap<>();
   }
   
+  public SettingsBag set(String key, String value) {
+    this.map.put(key, value);
+    return this;
+  }
+  
+  public String get(String key) {
+    return this.map.get(key);
+  }
+  
+  public static SettingsBag getInstance() {
+    return instance;
+  }
+  
+  private HashMap<String, String> map;
+  
+  private final static SettingsBag instance = new SettingsBag();
 }
