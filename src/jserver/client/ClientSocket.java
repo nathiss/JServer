@@ -49,14 +49,20 @@ public class ClientSocket {
   }
   
   /**
-   * Reads all bytes from a input stream and returns them as a string.
-   * @return all bytes from a input stream
+   * Reads a package from a input stream and returns it as a string.
+   * @return a package from a input stream
    */
   public String readAll() {
+    String ret = new String();
+    String line;
     try {
-      byte [] bytes = new byte[4096];
-      this.ois.read(bytes);
-      return new String(bytes);
+      do {
+        line = this.ois.readLine();
+        ret += line + "\r\n";
+      } while (line.length() > 0);
+
+      return ret;
+      
     }
     catch (IOException e) {
       System.err.print(e);
