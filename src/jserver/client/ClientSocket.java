@@ -59,7 +59,7 @@ public class ClientSocket {
       do {
         line = this.ois.readLine();
         ret += line + "\r\n";
-      } while (line.length() > 0);
+      } while (line != null && line.length() > 0);
 
       return ret;
       
