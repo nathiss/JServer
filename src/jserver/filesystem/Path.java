@@ -88,7 +88,7 @@ public class Path {
    * Compares this path and a given one.
    * @param path a path to compare
    * @return true if paths are equal, false otherwise
-   * @see java.lang.Path
+   * @see jserver.filesystem.Path
    */
   public boolean equals(String path) {
     return this.path.equals(path);
