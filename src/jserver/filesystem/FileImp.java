@@ -120,6 +120,7 @@ public class FileImp implements File {
   
   /**
    * An object representing a file on a filesystem.
+   * @see java.io.File
    */
   private final java.io.File file;
 }

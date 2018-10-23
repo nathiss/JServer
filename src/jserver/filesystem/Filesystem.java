@@ -29,12 +29,13 @@ package jserver.filesystem;
  */
 public interface Filesystem {
   /**
-   * Returns an {@link File} object representing a file on a filesystem or null
-   * if file is not a regular file or can not be read.
+   * Returns an {@link jserver.filesystem.File} object representing a file on
+   * a filesystem or null if file is not a regular file or can not be read.
    * @param filePath a file name. If null is given sets the name to
    * "index.html".
-   * @return an {@link File} object representing a file on a filesystem or null
-   * if file is not a regular file or can not be read
+   * @return an {@link jserver.filesystem.File} object representing a file on
+   * a filesystem or null if file is not a regular file or can not be read
+   * @see jserver.filesystem.File
    */
   public File getFile(String filePath);
 }

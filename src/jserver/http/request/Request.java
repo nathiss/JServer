@@ -39,18 +39,21 @@ public interface Request {
   /**
    * Returns a HTTP request method or null if the request is invalid.
    * @return a HTTP request method or null if the request is invalid
+   * @see jserver.http.request.Method
    */
   public Method getMethod();
   
   /**
    * Returns a URI or null if the request is invalid.
    * @return a URI or null if the request is invalid
+   * @see java.lang.String
    */
   public String getUri();
   
   /**
    * Returns a HTTP protocol version or null if the request is invalid.
    * @return a HTTP protocol version or null if the request is invalid
+   * @see jserver.http.ProtocolVersion
    */
   public ProtocolVersion getProtocolVersion();
   
@@ -58,6 +61,7 @@ public interface Request {
    * Returns an associated value for a given key or null if key does not exist.
    * @param key an index in the associative array
    * @return a value associated with a given key or null if key does not exist
+   * @see java.lang.String
    */
   public String get(String key);
   
@@ -67,6 +71,7 @@ public interface Request {
    * @param key a given key
    * @return true if a given key exists in the associative array,
    * false otherwise
+   * @see java.lang.String
    */
   public boolean hasKey(String key);
 }

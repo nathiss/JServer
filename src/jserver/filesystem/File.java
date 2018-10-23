@@ -33,30 +33,35 @@ public interface File {
   /**
    * Reads a whole file and returns its content.
    * @return a file content
+   * @see java.lang.String
    */
   public String read();
   
   /**
    * Returns a file modification date.
    * @return a file modification date
+   * @see jserver.http.HttpDate
    */
   public HttpDate getModificationDate();
   
   /**
    * Returns an absolute path of this file.
-   * @return an absolute path represented as {@link Path}
+   * @return an absolute path represented as {@link jserver.filesystem.Path}
+   * @see jserver.filesystem.Path
    */
   public Path getAbsolutePath();
   
   /**
    * Returns a file name (with an extension)
    * @return a file name
+   * @see java.lang.String
    */
   public String getName();
   
   /**
    * Returns a file extension if any or null otherwise.
    * @return a file extension if any or null otherwise
+   * @see java.lang.String
    */
   public String getExtension();
   

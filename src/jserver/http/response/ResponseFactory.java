@@ -31,7 +31,9 @@ public interface ResponseFactory {
   /**
    * Creates a response object for each of HTTP status codes.
    * @param code HTTP status code
-   * @return created Response object 
+   * @return created Response object
+   * @see jserver.http.response.Response
+   * @see jserver.http.response.Code
    */
   public Response make(Code code);
 }

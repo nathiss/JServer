@@ -42,6 +42,8 @@ public enum ProtocolVersion {
    * Return textual phrase for all the versions above or null if not supported.
    * @param version HTTP protocol version
    * @return textual phrase or null if not implemented
+   * @see java.lang.String
+   * @see jserver.http.ProtocolVersion
    */
   public static String getProtocolVersionText(ProtocolVersion version) {
     switch(version) {
@@ -58,6 +60,8 @@ public enum ProtocolVersion {
    * Converts a string to HTTP protocol version.
    * @param version a textual HTTP protocol version
    * @return converted HTTP protocol version
+   * @see jserver.http.ProtocolVersion
+   * @see java.lang.String
    */
   public static ProtocolVersion toProtocolVersion(String version) {
     switch(version) {

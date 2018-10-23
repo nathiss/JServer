@@ -30,20 +30,22 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 /**
- * Converts a {@link Date} to a {@link String} representation of the date.
+ * Converts a {@link java.util.Date} to a {@link java.lang.String}
+ * representation of the date.
  * @author nathiss
  */
 public class HttpDate {
   /**
-   * Converts current time to a {@link String}.
+   * Converts current time to a {@link java.lang.String}.
    */
   public HttpDate() {
     this(Calendar.getInstance().getTime());
   }
   
   /**
-   * Converts a {@link Date} to a {@link String}.
-   * @param date 
+   * Converts a {@link java.util.Date} to a {@link java.lang.String}.
+   * @param date a date
+   * @see java.util.Date
    */
   public HttpDate(Date date) {
     SimpleDateFormat dateFormat = new SimpleDateFormat(
@@ -54,8 +56,9 @@ public class HttpDate {
   }
   
   /**
-   * Returns converted {@link Date}.
+   * Returns converted {@link java.util.Date}.
    * @return string representation of this object
+   * @see java.lang.String
    */
   @Override
   public String toString() {
@@ -64,6 +67,7 @@ public class HttpDate {
   
   /**
    * Converted date.
+   * @see java.lang.String
    */
   private String date;
 }

@@ -28,23 +28,32 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
+ * A log manager for the server.
  * @author nathiss
  */
 public class Logger {
-
-  public static Object getInstance() {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
-  private Logger() {
+  private Logger() {}
   
-  }
-  
+  /**
+   * Logs a given message.
+   * @param msg a given message
+   * @return this instance
+   * @see jserver.logger.Logger
+   * @see java.lang.String
+   */
   public Logger log(String msg) {
-    System.out.println(msg);
-    return this;
+    return this.log(msg, LoggerLevel.INFO);
   }
   
+  /**
+   * Logs a given message.
+   * @param msg a given message
+   * @param lvl a message level
+   * @return this instance
+   * @see jserver.logger.Logger
+   * @see java.lang.String
+   * @see jserver.logger.LoggerLevel
+   */
   public Logger log(String msg, LoggerLevel lvl) {
     switch (lvl) {
       case INFO:
@@ -62,15 +71,31 @@ public class Logger {
     return this;
   }
   
+  /**
+   * Returns a current time formatted to a {@link java.lang.String}.
+   * @return a formatted time
+   * @see java.lang.String
+   */
   private String getTime() {
     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
     Date now = new Date();
     return sdf.format(now);
   }
   
+  /**
+   * Returns this instance (singleton).
+   * @return this instance
+   * @see jserver.logger.Logger
+   * @see 
+   * <a href="https://en.wikipedia.org/wiki/Singleton_pattern">Singleton</a>
+   */
   public static Logger getInstace() {
     return instance;
   }
   
+  /**
+   * The only instance of this class.
+   * @see jserver.logger.Logger
+   */
   private final static Logger instance = new Logger();
 }

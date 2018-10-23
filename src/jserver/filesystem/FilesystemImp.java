@@ -28,10 +28,18 @@ package jserver.filesystem;
  * @author nathiss
  */
 public class FilesystemImp implements Filesystem {
+  /**
+   * Sets a root directory path to null.
+   */
   public FilesystemImp() {
     this(null);
   }
   
+  /**
+   * Sets a root directory path to a given value.
+   * @param rootDir a root directory path
+   * @see java.lang.String
+   */
   public FilesystemImp(String rootDir) {
     this.rootDir = new Path();
     this.setRootDir(rootDir);
@@ -40,6 +48,7 @@ public class FilesystemImp implements Filesystem {
   /**
    * Sets a root directory path.
    * @param path a root directory path
+   * @see java.lang.String
    */
   public final void setRootDir(String path) {
     this.rootDir.set(path);
@@ -63,6 +72,7 @@ public class FilesystemImp implements Filesystem {
   
   /**
    * A filesystem root dir.
+   * @see jserver.filesystem.Path
    */
   private Path rootDir;
 }

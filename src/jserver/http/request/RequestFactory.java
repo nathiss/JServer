@@ -31,18 +31,21 @@ public interface RequestFactory {
   /**
    * Creates a HTTP request lexer.
    * @return a HTTP request lexer
+   * @see jserver.http.request.Lexer
    */
   public Lexer makeLexer();
   
   /**
    * Creates a HTTP request parser.
    * @return a HTTP request parser
+   * @see jserver.http.request.Parser
    */
   public Parser makeParser();
   
   /**
    * Creates a HTTP request.
    * @return a HTTP request
+   * @see jserver.http.request.Request
    */
   public Request makeRequest();
 }

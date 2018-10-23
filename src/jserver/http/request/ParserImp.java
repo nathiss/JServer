@@ -61,6 +61,7 @@ public class ParserImp implements Parser {
   /**
    * Returns HTTP request method converted from a string. 
    * @return HTTP request method
+   * @see jserver.http.request.Method
    */
   private Method getMethod() {
     return  Method.toMethod(this.data[0][0]);
@@ -69,14 +70,16 @@ public class ParserImp implements Parser {
   /**
    * Returns HTTP request URI.
    * @return HTTP request URI
+   * @see java.lang.String
    */
   private String getUri() {
     return this.data[0][1];
   }
   
   /**
-   * Returns HTTP protocol version converted from a string
-   * @return HTTP protocol version 
+   * Returns HTTP protocol version converted from a string.
+   * @return HTTP protocol version
+   * @see jserver.http.ProtocolVersion
    */
   private ProtocolVersion getProtocolVersion() {
     return ProtocolVersion.toProtocolVersion(this.data[0][2]);
@@ -84,6 +87,7 @@ public class ParserImp implements Parser {
   
   /**
    * Lexed HTTP request.
+   * @see java.lang.String
    */
   private String [][] data;
 }

@@ -72,7 +72,9 @@ public enum Code {
    * Returns textual reason phrase for all the codes above or null if not
    * supported.
    * @param code HTTP response code
-   * @return textual reason phrase or null if not implemented.
+   * @return textual reason phrase or null if not implemented
+   * @see java.lang.String
+   * @see jserver.http.response.Code
    */
   public static String getReasonPhrase(Code code) {
     switch(code) {
@@ -104,6 +106,7 @@ public enum Code {
   /**
    * Sets a value of a enum constant.
    * @param id an integer value
+   * @see jserver.http.response.Code
    */
   private Code(int id) {
     this.id = id;

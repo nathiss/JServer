@@ -28,10 +28,18 @@ package jserver.filesystem;
  * @author nathiss
  */
 public class Path {
+  /**
+   * Sets a stored path to null.
+   */
   public Path() {
     this.path = null;
   }
   
+  /**
+   * Stores a given path.
+   * @param path a given path
+   * @see java.lang.String
+   */
   public Path(String path) {
     this.set(path);
   }
@@ -39,6 +47,7 @@ public class Path {
   /**
    * Sets a stored path.
    * @param path a path to be stored
+   * @see java.lang.String
    */
   public final void set(String path) {
     this.path = this.format(path);
@@ -47,6 +56,7 @@ public class Path {
   /**
    * Returns a stored path.
    * @return a stored path
+   * @see java.lang.String
    */
   @Override
   public final String toString() {
@@ -56,6 +66,7 @@ public class Path {
   /**
    * Splits a stored path into an array of directory/file names.
    * @return a splitted path
+   * @see java.lang.String
    */
   public String [] split() {
     if (this.path.equals("/"))
@@ -67,6 +78,7 @@ public class Path {
    * Compares this path and a given one.
    * @param path a path to compare
    * @return true if paths are equal, false otherwise
+   * @see jserver.filesystem.Path
    */
   public boolean equals(Path path) {
     return this.path.equals(path.path);
@@ -76,6 +88,7 @@ public class Path {
    * Compares this path and a given one.
    * @param path a path to compare
    * @return true if paths are equal, false otherwise
+   * @see java.lang.Path
    */
   public boolean equals(String path) {
     return this.path.equals(path);
@@ -94,6 +107,7 @@ public class Path {
    * path, if null is given return null.
    * @param path a path to format
    * @return formatted path or null if null is given
+   * @see java.lang.String
    */
   private String format(String path) {
     if (path == null)
@@ -109,6 +123,7 @@ public class Path {
    * Joins two paths and return a concatenated path.
    * @param path a second path to concatenate
    * @return a concatenated path
+   * @see jserver.filesystem.Path
    */
   public Path join(Path path) {
     if (path == null || path.equals("/"))
@@ -122,6 +137,7 @@ public class Path {
   
   /**
    * A stored path.
+   * @see java.lang.String
    */
   private String path;
 }

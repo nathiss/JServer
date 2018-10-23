@@ -32,25 +32,40 @@ import jserver.server.Server;
 import jserver.server.ServerImp;
 
 /**
- *
+ * A main class.
  * @author nathiss
  */
 public class JServer {
+  /**
+   * Initializes the server.
+   */
   private JServer() {
+    String port = "8080";
+    String root = "/tmp/www";
+    
     SettingsBag.getInstance()
-      .set("port", "8080")
-      .set("root","/tmp/www")
+      .set("port", port)
+      .set("root", root)
       .set("isRunning", "1");
     
     this.clients = new CopyOnWriteArrayList<>();
-    this.server = new ServerImp(Integer.valueOf("8080"));
+    this.server = new ServerImp(Integer.valueOf(port));
     
   }
   
+  /**
+   * Prints a usage info.
+   * @param name args[0]
+   * @see java.lang.String
+   */
   private void printUsage(String name) {
     System.out.println("Usage: " + name + " port www_root");
   }
   
+  /**
+   * Starts the server.
+   * @see jserver.server.Server
+   */
   private void run() {
     SettingsBag bag = SettingsBag.getInstance();
     while(bag.get("isRunning").equals("1")) {
@@ -67,6 +82,9 @@ public class JServer {
     }
   }
   
+  /**
+   * Checks if any of created threads is not running anymore, then removes it.
+   */
   private void checkThreads() {
       Iterator<Thread> it = this.clients.iterator();
       while (it.hasNext()) {
@@ -81,11 +99,21 @@ public class JServer {
       
   }
   
+  /**
+   * A list of threads.
+   * @see java.util.List
+   * @see java.lang.Thread
+   */
   private final List<Thread> clients;
   
+  /**
+   * A server object.
+   * @see jserver.server.Server
+   */
   private final Server server;
 
   /**
+   * Starts the program.
    * @param args the command line arguments
    */
   public static void main(String[] args) {

@@ -32,6 +32,7 @@ public interface Lexer {
    * Lexes the given data and returns word-splitted. 
    * @param data raw HTTP request
    * @return HTTP request word-splitted
+   * @see java.lang.String
    */
   public String [][] lex(String data);
 }

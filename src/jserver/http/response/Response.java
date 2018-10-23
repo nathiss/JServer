@@ -40,30 +40,35 @@ public interface Response {
   /**
    * Sets a HTTP protocol version for server response. 
    * @param version HTTP protocol version
+   * @see jserver.http.ProtocolVersion
    */
   public void setProtocolVersion(ProtocolVersion version);
   
   /**
    * Sets a HTTP response code.
-   * @param code HTTP response code.
+   * @param code HTTP response code
+   * @see jserver.http.response.Code
    */
   public void setCode(Code code);
   
   /**
    * Sets a HTTP response MIME type.
    * @param type HTTP response MIME type
+   * @see jserver.http.response.MimeType
    */
   public void setMimeType(MimeType type);
   
   /**
    * Sets a last modification date of a file.
    * @param date a last modification date
+   * @see jserver.http.HttpDate
    */
   public void setLastModified(HttpDate date);
   
   /**
    * Sets a payload for a HTTP response.
    * @param data response content
+   * @see java.lang.String
    */
   public void setContent(String data);
   
@@ -76,6 +81,7 @@ public interface Response {
   /**
    * Serializes the object to HTTP server response.
    * @return serialized object
+   * @see java.lang.String
    */
   @Override
   public String toString();

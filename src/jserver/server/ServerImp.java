@@ -35,7 +35,11 @@ import jserver.client.ClientImp;
  * Holds all information about the server.
  * @author nathiss
  */
-public class ServerImp implements Server { 
+public class ServerImp implements Server {
+  /**
+   * Initializes this object.
+   * @param port a server port number (bind)
+   */
   public ServerImp(int port) {
     this.port = port;
     this.running = false;
@@ -102,6 +106,7 @@ public class ServerImp implements Server {
   
   /**
    * A server socket.
+   * @see java.net.ServerSocket
    */
   private ServerSocket serverSocket;
   

@@ -66,6 +66,7 @@ public enum Method {
    * Converts a string to Method.
    * @param method a textual HTTP method
    * @return converted HTTP request method
+   * @see java.lang.String
    */
   public static Method toMethod(String method) {
     switch(method) {

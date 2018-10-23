@@ -30,24 +30,57 @@ import java.util.HashMap;
  * @author nathiss
  */
 public class SettingsBag {
+  /**
+   * Initializes this object.
+   */
   private SettingsBag() {
     this.map = new HashMap<>();
   }
   
+  /**
+   * Stored a given value under a given key.
+   * @param key a given key
+   * @param value a given value
+   * @return this instance
+   * @see java.lang.String
+   * @see jserver.SettingsBag
+   */
   public SettingsBag set(String key, String value) {
     this.map.put(key, value);
     return this;
   }
   
+  /**
+   * Returns a stored value under a given key.
+   * @param key a given key
+   * @return a stored value
+   * @see java.lang.String
+   */
   public String get(String key) {
     return this.map.get(key);
   }
   
+  /**
+   * Returns this instance.
+   * @return this instance
+   * @see jserver.SettingsBag
+   * @see
+   * <a href="https://en.wikipedia.org/wiki/Singleton_pattern">Singleton</a>
+   */
   public static SettingsBag getInstance() {
     return instance;
   }
   
-  private HashMap<String, String> map;
+  /**
+   * An associative array.
+   * @see java.util.HashMap
+   * @see java.lang.String
+   */
+  private final HashMap<String, String> map;
   
+  /**
+   * The only instance of this class.
+   * @see jserver.SettingsBag
+   */
   private final static SettingsBag instance = new SettingsBag();
 }

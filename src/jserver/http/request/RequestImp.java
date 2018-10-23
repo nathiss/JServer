@@ -91,6 +91,7 @@ public class RequestImp implements Request {
   /**
    * Sets a HTTP request method
    * @param method HTTP request method
+   * @see jserver.http.request.Method
    */
   public void setMethod(Method method) {
     this.method = method;
@@ -99,6 +100,7 @@ public class RequestImp implements Request {
   /**
    * Sets a HTTP request URI
    * @param uri HTTP request URI
+   * @see java.lang.String
    */
   public void setUri(String uri) {
     this.uri = uri;
@@ -107,6 +109,7 @@ public class RequestImp implements Request {
   /**
    * Sets a HTTP protocol version
    * @param version HTTP protocol version
+   * @see jserver.http.ProtocolVersion
    */
   public void setProtocolVersion(ProtocolVersion version) {
     this.version = version;
@@ -116,6 +119,7 @@ public class RequestImp implements Request {
    * Adds a field to associative array.
    * @param key a key to be stored in a map
    * @param value a value to be stored in a map under a given key
+   * @see java.lang.String
    */
   public void addField(String key, String value) {
     this.fields.put(key, value);
@@ -123,21 +127,26 @@ public class RequestImp implements Request {
   
   /**
    * A method of HTTP request.
+   * @see jserver.http.request.Method
    */
   private Method method;
   
   /**
    * A URI of HTTP request.
+   * @see java.lang.String
    */
   private String uri;
   
   /**
    * A HTTP protocol version.
+   * @see jserver.http.ProtocolVersion
    */
   private ProtocolVersion version;
   
   /**
    * Associative array of key-value pairs from HTTP request header fields.
+   * @see java.util.HashMap
+   * @see java.lang.String
    */
   private final HashMap<String, String> fields;
   

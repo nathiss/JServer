@@ -32,6 +32,8 @@ public interface Parser {
    * Parses the given data and returns HTTP request object.
    * @param lexedData data from a lexer
    * @return object representation of HTTP request
+   * @see java.lang.String
+   * @see jserver.http.request.Request
    */
   public Request parse(String[][] lexedData);
 }

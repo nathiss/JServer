@@ -26,11 +26,13 @@ package jserver.filesystem;
 /**
  * An abstract factory for a filesystem object.
  * @author nathiss
+ * @see jserver.filesystem.Filesystem
  */
 public interface FilesystemFactory {
   /**
-   * Creates a {@link Filesystem} object.
-   * @return a created {@link Filesystem} object.
+   * Creates a {@link jserver.filesystem.Filesystem} object.
+   * @return a created {@link jserver.filesystem.Filesystem} object
+   * @see jserver.filesystem.Filesystem
    */
   public Filesystem makeFilesystem();
 }

@@ -24,7 +24,7 @@
 package jserver.http.response;
 
 /**
- *
+ * A enum holding all used MIME types.
  * @author nathiss
  */
 public enum MimeType {
@@ -82,6 +82,8 @@ public enum MimeType {
    * Return textual phrase for all the types above or null if not supported.
    * @param type MIME type
    * @return textual phrase or null if not implemented
+   * @see java.lang.String
+   * @see jserver.http.response.MimeType
    */
   public static String getMimeTypeText(MimeType type) {
     switch(type) {
@@ -110,6 +112,13 @@ public enum MimeType {
     }
   }
   
+  /**
+   * Converts a file extension to a MIME type. 
+   * @param extension a file extension
+   * @return a mapped MIME type
+   * @see jserver.http.response.MimeType
+   * @see java.lang.String
+   */
   public static MimeType extensionToType(String extension) {
     switch(extension) {
       case "txt":

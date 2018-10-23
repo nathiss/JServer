@@ -51,6 +51,7 @@ public interface Server {
    * Waits for a new connection and returns an object representing a client.
    * Blocking call.
    * @return HTTP client object
+   * @see jserver.client.Client
    */
   public Client accept();
 }

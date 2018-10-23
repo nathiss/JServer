@@ -34,6 +34,11 @@ import jserver.logger.Logger;
  * @author nathiss
  */
 public class ClientSocket {
+  /**
+   * Open the socket streams.
+   * @param socket a socket connected to a client
+   * @see java.net.Socket
+   */
   public ClientSocket(Socket socket) {
     this.socket = socket;
     try {
@@ -50,6 +55,7 @@ public class ClientSocket {
   /**
    * Reads a package from a input stream and returns it as a string.
    * @return a package from a input stream
+   * @see java.lang.String
    */
   public String readAll() {
     String ret = new String();
@@ -70,8 +76,9 @@ public class ClientSocket {
   }
   
   /**
-   * 
+   * Sends a data to a client.
    * @param data a data for a client.
+   * @see java.lang.String
    */
   public void write(String data) {
     try {
@@ -106,16 +113,19 @@ public class ClientSocket {
   
   /**
    * A socket connected to a client.
+   * @see java.lang.String
    */
   private Socket socket;
   
   /**
    * A input stream for the socket.
+   * @see java.io.DataInputStream
    */
   private DataInputStream ois;
   
   /**
    * A output stream for the socket.
+   * @see java.io.DataOutputStream
    */
   private DataOutputStream oos;
 }
