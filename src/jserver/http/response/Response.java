@@ -73,12 +73,6 @@ public interface Response {
   public void setContent(String data);
   
   /**
-   * Sets a keep-alive flag
-   * @param flag a keep-alive flag
-   */
-  public void setKeepAlive(boolean flag);
-  
-  /**
    * Serializes the object to HTTP server response.
    * @return serialized object
    * @see java.lang.String
