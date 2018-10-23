@@ -27,8 +27,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import jserver.logger.Logger;
 
 /**
  * Wrapper for java.net.ClientSocket.
@@ -44,7 +43,7 @@ public class ClientSocket {
     catch (IOException e) {
       this.ois = null;
       this.oos = null;
-      Logger.getLogger(ClientSocket.class.getName()).log(Level.SEVERE, null, e);
+      Logger.getInstace().log(e.toString());
     }
   }
   
@@ -60,7 +59,7 @@ public class ClientSocket {
         line = this.ois.readLine();
         ret += line + "\r\n";
       } while (line != null && line.length() > 0);
-
+    
       return ret;
       
     }

@@ -53,7 +53,6 @@ public class ClientImp implements Client {
     this.responseFactory = new ResponseFactoryImp();
     this.response = null;
     this.socket = null;
-    this.keepAlive = false;
     this.filesystemFactory = new FilesystemFactoryImp();
     this.filesystem = this.filesystemFactory.makeFilesystem();
   }
@@ -63,13 +62,8 @@ public class ClientImp implements Client {
    */
   @Override
   public void proccess() {
-    do {
-      this.keepAlive = false;
-      this.readAndResponse();
-      this.socket.write(this.response.toString());
-    } while(false && this.keepAlive);
-    
-    this.close();
+    this.readAndResponse();
+    this.socket.write(this.response.toString());
   }
   
   /**
@@ -108,11 +102,6 @@ public class ClientImp implements Client {
     String content = file.read();
     this.response.setContent(content);
     this.response.setMimeType(MimeType.extensionToType(file.getExtension()));
-    
-    if (this.request.get("Connection").equals("keep-alive")) {
-      this.keepAlive = true;
-      this.response.setKeepAlive(true);
-    }
   }
   
   /**
@@ -184,17 +173,12 @@ public class ClientImp implements Client {
   private ClientSocket socket;
   
   /**
-   * If it's true, then connection will not be closed after sending a response.
-   */
-  private boolean keepAlive;
-  
-  /**
    * An abstract factory for a filesystem.
    */
-  private FilesystemFactory filesystemFactory;
+  private final FilesystemFactory filesystemFactory;
   
   /**
    * A filesystem object.
    */
-  private Filesystem filesystem;
+  private final Filesystem filesystem;
 }

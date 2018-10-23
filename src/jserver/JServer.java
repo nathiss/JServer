@@ -23,17 +23,74 @@
  */
 package jserver;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import jserver.client.Client;
+import jserver.logger.Logger;
+import jserver.server.Server;
+import jserver.server.ServerImp;
+
 /**
  *
  * @author nathiss
  */
 public class JServer {
+  private JServer() {
+    SettingsBag.getInstance()
+      .set("port", "8080")
+      .set("root","/tmp/www")
+      .set("isRunning", "1");
+    
+    this.clients = new CopyOnWriteArrayList<>();
+    this.server = new ServerImp(Integer.valueOf("8080"));
+    
+  }
+  
+  private void printUsage(String name) {
+    System.out.println("Usage: " + name + " port www_root");
+  }
+  
+  private void run() {
+    SettingsBag bag = SettingsBag.getInstance();
+    while(bag.get("isRunning").equals("1")) {
+      Client client = this.server.accept();
+      Runnable runnable =
+        () -> client.proccess();
+      int id = client.hashCode();
+      Logger.getInstace().log("New Client (id: " + id + "). Starting Thread.");
+      Thread thread = new Thread(runnable, Integer.toString(id));
+      thread.start();
+      this.clients.add(thread);
+      
+      this.checkThreads();
+    }
+  }
+  
+  private void checkThreads() {
+      Iterator<Thread> it = this.clients.iterator();
+      while (it.hasNext()) {
+        Thread th = it.next();
+        if (!th.isAlive()) {
+          Logger.getInstace().log("Connection to client (id: " + th.getName() +
+            ") ended. Removing thread."
+          );
+          clients.remove(th);
+        }
+      }
+      
+  }
+  
+  private final List<Thread> clients;
+  
+  private final Server server;
 
   /**
    * @param args the command line arguments
    */
   public static void main(String[] args) {
-    // TODO code application logic here
+    JServer app = new JServer();
+    app.run();
   }
     
 }
