@@ -30,6 +30,7 @@ import jserver.filesystem.FilesystemFactory;
 import jserver.filesystem.FilesystemFactoryImp;
 import jserver.http.ProtocolVersion;
 import jserver.http.request.Lexer;
+import jserver.http.request.Method;
 import jserver.http.request.Parser;
 import jserver.http.request.Request;
 import jserver.http.request.RequestFactory;
@@ -41,7 +42,7 @@ import jserver.http.response.ResponseFactory;
 import jserver.http.response.ResponseFactoryImp;
 
 /**
- *
+ * A HTTP client implementation class.
  * @author nathiss
  */
 public class ClientImp implements Client {
@@ -74,30 +75,47 @@ public class ClientImp implements Client {
     String [][] lexedRequest = this.lexer.lex(rawRequest);
     this.request = this.parser.parse(lexedRequest);
     
+    // Server does not support HTTP/1.0.
     if (this.isProtocolVersionHttp_1_0()) {
       this.response = this.responseFactory.make(
-        Code.HTTP_VERSION_NOT_SUPPORTED
-      );
+        Code.HTTP_VERSION_NOT_SUPPORTED);
       return;
     }
     
-    // Host field is required in HTTP/1.1
+    // Host field is required in HTTP/1.1.
     if (!this.request.hasKey("Host")) {
       this.response = this.responseFactory.make(Code.BAD_REQUEST);
       return;
     }
     
+    // Server does not support range requests.
+    if (this.request.hasKey("Range") || this.request.hasKey("If-Range")) {
+      this.response = this.responseFactory.make(Code.NOT_IMPLEMENTED);
+      return;
+    }
+    
+    // Server supports only the GET/HEAD requests.
+    if (this.request.getMethod() != Method.GET &&
+      this.request.getMethod() != Method.HEAD) {
+      this.response = this.responseFactory.make(Code.METHOD_NOT_ALLOWED);
+      return;
+    }
+    
     File file = this.filesystem.getFile(this.request.getUri());
+    
+    // File does not exist (404).
     if (file == null) {
       this.response = this.responseFactory.make(Code.NOT_FOUND);
       return;
     }
     
+    // File is not readable (403).
     if (!file.isReadable()) {
       this.response = this.responseFactory.make(Code.FORBIDDEN);
       return;
     }
     
+    // Pass (200).
     this.response = this.responseFactory.make(Code.OK);
     String content = file.read();
     this.response.setContent(content);
