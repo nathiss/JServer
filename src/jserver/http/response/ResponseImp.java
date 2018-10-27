@@ -105,6 +105,7 @@ public class ResponseImp implements Response {
     if (this.lastModified != null)
       ret += "last-modified: " + this.lastModified.toString() + "\r\n";
     
+    ret += "Connection : close\r\n";
     ret += "Date: " + this.getServerTime() + "\r\n";
     ret += "Server: JServer\r\n";
     ret += "Content-Length: " + this.data.length() + "\r\n";
