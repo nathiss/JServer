@@ -103,9 +103,9 @@ public class ResponseImp implements Response {
       this.code.getValue() + " " + Code.getReasonPhrase(this.code) + "\r\n";
     
     if (this.lastModified != null)
-      ret += "last-modified: " + this.lastModified.toString() + "\r\n";
+      ret += "Last-Modified: " + this.lastModified.toString() + "\r\n";
     
-    ret += "Connection : close\r\n";
+    ret += "Connection : close\r\n";  // We're supporting persisting connection.
     ret += "Date: " + this.getServerTime() + "\r\n";
     ret += "Server: JServer\r\n";
     ret += "Content-Length: " + this.data.length() + "\r\n";
