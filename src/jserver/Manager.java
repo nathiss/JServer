@@ -68,8 +68,7 @@ public class Manager {
     SettingsBag bag = SettingsBag.getInstance();
     while(bag.get("isRunning").equals("1")) {
       Client client = this.server.accept();
-      Runnable runnable =
-        () -> client.proccess();
+      Runnable runnable = () -> client.proccess();
       int id = client.hashCode();
       Logger.getInstace().log("New Client (id: " + id + "). Starting Thread.");
       Thread thread = new Thread(runnable, Integer.toString(id));

@@ -114,9 +114,10 @@ public class Path {
       return null;
     if (path.length() == 1)
       return path;
-    if (path.charAt(path.length() - 1) == '/')
+    if (path.charAt(path.length() - 1) == java.io.File.separator.charAt(0))
       return path.substring(0, path.length() - 1);
-    return path.replaceAll("/+", "/");
+    return path.replaceAll(java.io.File.separator + "+",
+      java.io.File.separator);
   }
   
   /**

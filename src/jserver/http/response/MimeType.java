@@ -142,6 +142,8 @@ public enum MimeType {
       case "json":
         return application_json;
       default:
+        // Absolutelly no idea what the MIME type of this really is, but here
+        // you are, dear client.
         return application_binary;
     }
   }
