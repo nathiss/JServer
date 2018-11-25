@@ -31,7 +31,6 @@ import jserver.http.HttpDate;
 
 /**
  * A class representing a file on a filesystem.
- * @author nathiss
  */
 public class FileImp implements File {
   public FileImp(Path path) {

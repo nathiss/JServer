@@ -25,7 +25,6 @@ package jserver.http.request;
 
 /**
  * Lexer for HTTP request.
- * @author nathiss
  */
 public interface Lexer {
   /**

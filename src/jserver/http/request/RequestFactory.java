@@ -25,7 +25,6 @@ package jserver.http.request;
 
 /**
  * An abstract factory for a HTTP request object.
- * @author nathiss
  */
 public interface RequestFactory {
   /**

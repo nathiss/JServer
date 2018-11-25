@@ -27,7 +27,6 @@ import jserver.SettingsBag;
 
 /**
  * An abstract factory for a filesystem object.
- * @author nathiss
  */
 public class FilesystemFactoryImp implements FilesystemFactory {
 

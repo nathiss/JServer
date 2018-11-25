@@ -25,7 +25,6 @@ package jserver.http.response;
 
 /**
  * A enum holding all used MIME types.
- * @author nathiss
  */
 public enum MimeType {
   /**

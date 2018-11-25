@@ -25,7 +25,6 @@ package jserver.logger;
 
 /**
  * A logger level enum.
- * @author nathiss
  * @see jserver.logger.Logger
  */
 public enum LoggerLevel {

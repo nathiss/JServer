@@ -25,7 +25,6 @@ package jserver.filesystem;
 
 /**
  * An interface representing a filesystem.
- * @author nathiss
  */
 public interface Filesystem {
   /**

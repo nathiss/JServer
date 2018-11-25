@@ -25,7 +25,6 @@ package jserver.filesystem;
 
 /**
  * An class representing a filesystem.
- * @author nathiss
  */
 public class FilesystemImp implements Filesystem {
   /**

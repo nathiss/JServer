@@ -25,7 +25,6 @@ package jserver.filesystem;
 
 /**
  * A Class representing a filesystem path.
- * @author nathiss
  */
 public class Path {
   /**

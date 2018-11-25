@@ -25,7 +25,6 @@ package jserver.http;
 
 /**
  * A set of valid HTTP protocol versions.
- * @author nathiss
  */
 public enum ProtocolVersion {
   /**

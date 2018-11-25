@@ -25,7 +25,6 @@ package jserver.http.request;
 
 /**
  * LexerImp for HTTP request.
- * @author nathiss
  */
 public class LexerImp implements Lexer {
   /**

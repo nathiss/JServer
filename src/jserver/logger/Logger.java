@@ -29,7 +29,6 @@ import java.util.Date;
 
 /**
  * A log manager for the server.
- * @author nathiss
  */
 public class Logger {
   private Logger() {}

@@ -27,7 +27,6 @@ import java.util.Scanner;
 
 /**
  * A main class.
- * @author nathiss
  */
 public class JServer {
   /**

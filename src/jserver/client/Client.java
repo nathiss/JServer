@@ -25,7 +25,6 @@ package jserver.client;
 
 /**
  * Holds all information about a HTTP client.
- * @author nathiss
  */
 public interface Client {
   /**

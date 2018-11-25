@@ -43,7 +43,6 @@ import jserver.http.response.ResponseFactoryImp;
 
 /**
  * A HTTP client implementation class.
- * @author nathiss
  */
 public class ClientImp implements Client {
   public ClientImp() {

@@ -27,7 +27,6 @@ import jserver.http.HttpDate;
 
 /**
  * The File Interface representing a file on a filesystem.
- * @author nathiss
  */
 public interface File {
   /**

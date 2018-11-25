@@ -28,7 +28,6 @@ import jserver.http.ProtocolVersion;
 
 /**
  * Object representation of HTTP response.
- * @author nathiss
  */
 public interface Response {
   /**

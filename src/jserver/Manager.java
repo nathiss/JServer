@@ -33,7 +33,6 @@ import jserver.server.ServerImp;
 
 /**
  * A connection manager.
- * @author nathiss
  */
 public class Manager {
   /**

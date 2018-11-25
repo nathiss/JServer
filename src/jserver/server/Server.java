@@ -27,7 +27,6 @@ import jserver.client.Client;
 
 /**
  * Holds all information about the server.
- * @author nathiss
  */
 public interface Server {
   /**

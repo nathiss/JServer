@@ -25,7 +25,6 @@ package jserver.filesystem;
 
 /**
  * An abstract factory for a filesystem object.
- * @author nathiss
  * @see jserver.filesystem.Filesystem
  */
 public interface FilesystemFactory {

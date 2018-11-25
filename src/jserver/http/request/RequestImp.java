@@ -28,7 +28,6 @@ import jserver.http.ProtocolVersion;
 
 /**
  * Object representation of HTTP request.
- * @author nathiss
  */
 public class RequestImp implements Request {
   public RequestImp() {

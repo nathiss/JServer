@@ -25,7 +25,6 @@ package jserver.http.request;
 
 /**
  * A set of all valid HTTP request methods.
- * @author nathiss
  */
 public enum Method {
   /**

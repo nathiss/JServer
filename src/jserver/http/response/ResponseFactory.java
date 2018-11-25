@@ -25,7 +25,6 @@ package jserver.http.response;
 
 /**
  * Abstract Factory for Response objects.
- * @author nathiss
  */
 public interface ResponseFactory {
   /**

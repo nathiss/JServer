@@ -32,7 +32,6 @@ import java.util.TimeZone;
 /**
  * Converts a {@link java.util.Date} to a {@link java.lang.String}
  * representation of the date.
- * @author nathiss
  */
 public class HttpDate {
   /**

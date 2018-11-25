@@ -23,12 +23,12 @@
  */
 package jserver.http.response;
 
+import java.nio.charset.Charset;
 import jserver.http.HttpDate;
 import jserver.http.ProtocolVersion;
 
 /**
  * Object representation of HTTP response.
- * @author nathiss
  */
 public class ResponseImp implements Response {
   public ResponseImp() {

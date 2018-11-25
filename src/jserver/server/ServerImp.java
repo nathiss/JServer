@@ -33,7 +33,6 @@ import jserver.client.ClientImp;
 
 /**
  * Holds all information about the server.
- * @author nathiss
  */
 public class ServerImp implements Server {
   /**

@@ -27,7 +27,6 @@ import jserver.http.ProtocolVersion;
 
 /**
  * ParserImp for HTTP request.
- * @author nathiss
  */
 public class ParserImp implements Parser {
   /**

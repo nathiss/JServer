@@ -31,7 +31,6 @@ import jserver.logger.Logger;
 
 /**
  * Wrapper for java.net.ClientSocket.
- * @author nathiss
  */
 public class ClientSocket {
   /**

@@ -27,7 +27,6 @@ import java.util.HashMap;
 
 /**
  *
- * @author nathiss
  */
 public class SettingsBag {
   /**

@@ -25,7 +25,6 @@ package jserver.http.request;
 
 /**
  * Parser for HTTP request.
- * @author nathiss
  */
 public interface Parser {
   /**

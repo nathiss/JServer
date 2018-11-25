@@ -25,7 +25,6 @@ package jserver.http.response;
 
 /**
  * A set of all used HTTP response codes.
- * @author nathiss
  */
 public enum Code {
   /**

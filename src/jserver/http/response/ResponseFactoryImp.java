@@ -27,7 +27,6 @@ import jserver.http.ProtocolVersion;
 
 /**
  * Creates response objects for each of HTTP status codes. 
- * @author nathiss
  */
 public class ResponseFactoryImp implements ResponseFactory {
 
